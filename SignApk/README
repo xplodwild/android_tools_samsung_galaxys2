@@ -1,0 +1,8 @@
+SignApk.jar is a tool included with the Android platform source bundle.
+certificate.pem and key.pk8 is a test key pairs, create & use your own key pairs.
+
+Usage:
+java -jar signapk.jar certificate.pem key.pk8 <update.zip> <update_signed.zip>
+
+Tutorial:
+http://www.londatiga.net/general/how-to-sign-apk-zip-files

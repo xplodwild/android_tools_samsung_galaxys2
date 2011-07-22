@@ -1,0 +1,20 @@
+ui_print(">>");
+ui_print(">> Samsung Galaxy S II");
+ui_print(">> Radio Firmware Updater");
+ui_print(">>");
+
+assert(getprop("ro.product.device") == "galaxys2" || getprop("ro.build.product") == "galaxys2" || getprop("ro.product.board") == "galaxys2" || 
+       getprop("ro.product.device") == "GT-I9100" || getprop("ro.build.product") == "GT-I9100" || getprop("ro.product.board") == "GT-I9100" || 
+       getprop("ro.product.device") == "GT-I9100M" || getprop("ro.build.product") == "GT-I9100M" || getprop("ro.product.board") == "GT-I9100M" || 
+       getprop("ro.product.device") == "GT-I9100T" || getprop("ro.build.product") == "GT-I9100T" || getprop("ro.product.board") == "GT-I9100T");
+
+show_progress(0.800000, 5);
+ui_print("Installing modem...");
+assert(package_extract_file("flash_image", "/tmp/flash_image"),
+package_extract_file("modem.bin", "/tmp/modem.bin"),
+run_program("/tmp/flash_image", "/dev/block/mmcblk0p8", "/tmp/modem.bin"));
+delete("/tmp/modem.bin");
+delete("/tmp/flash_image");
+show_progress(0.200000, 0);
+ui_print("Done.");
+
