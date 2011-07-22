@@ -11,10 +11,11 @@ assert(getprop("ro.product.device") == "galaxys2" || getprop("ro.build.product")
 show_progress(0.800000, 5);
 ui_print("Installing modem...");
 
-assert(package_extract_file("flash_image", "/tmp/flash_image"),
-set_perm(0, 0, 0777, "/tmp/flash_image"),
-package_extract_file("modem.bin", "/tmp/modem.bin"),
-run_program("/tmp/flash_image", "/dev/block/mmcblk0p8", "/tmp/modem.bin"));
+package_extract_file("flash_image", "/tmp/flash_image");
+set_perm(0, 0, 0777, "/tmp/flash_image");
+package_extract_file("modem.bin", "/tmp/modem.bin");
+
+run_program("/tmp/flash_image", "/dev/block/mmcblk0p8", "/tmp/modem.bin");
 
 delete("/tmp/modem.bin");
 delete("/tmp/flash_image");
