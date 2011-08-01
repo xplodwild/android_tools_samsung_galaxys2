@@ -17,6 +17,7 @@ esac
 	then
     		rm -rf temp/
 		mkdir temp
+		mkdir -p out
 
 		echo "Copying tools for radiopackage ..."
 		cp -R radio/updater/* temp/
